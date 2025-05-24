@@ -25,7 +25,7 @@ export default defineConfig({
       formats: ["es", "cjs"]
     },
     rollupOptions: {
-      external: [...builtinModules],
+      external: [...builtinModules, "@sigiljs-community/openapi-plugin", "@sigiljs/sigil"],
       output: { exports: "named" }
     },
     commonjsOptions: { transformMixedEsModules: true },
