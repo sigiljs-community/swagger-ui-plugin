@@ -33,9 +33,11 @@ export default class SwaggerUiPlugin extends SigilPlugin<SwaggerUiPluginConfig> 
 
       if ([".js", ".css"].some(ext => req.path.endsWith(ext))) {
         const file = res.fileResponse(path.join(uiPath, req.path.slice(this.#path.length)))
-        Object.entries(mod.headers || {}).forEach(([key, value]) => {
-          file.headers.append(key, value)
+        if (mod.headers) Object.entries(mod.headers).forEach(([key, value]) => {
+          file.headers.set(key, value)
         })
+
+        return file
       }
 
       return res.rawResponse(this.#html, { ...mod.headers || {}, "content-type": "text/html" })
