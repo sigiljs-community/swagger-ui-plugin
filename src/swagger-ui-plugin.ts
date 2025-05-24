@@ -28,14 +28,17 @@ export default class SwaggerUiPlugin extends SigilPlugin<SwaggerUiPluginConfig> 
 
     const uiPath = this.#uiModule.absolutePath()
 
-    this.sigil.addMiddleware(async (req, res) => {
+    this.sigil.addMiddleware(async (req, res, mod) => {
       if (!req.path.startsWith(this.#path.slice(0, -1))) return
 
       if ([".js", ".css"].some(ext => req.path.endsWith(ext))) {
-        return res.fileResponse(path.join(uiPath, req.path.slice(this.#path.length)))
+        const file = res.fileResponse(path.join(uiPath, req.path.slice(this.#path.length)))
+        Object.entries(mod.headers || {}).forEach(([key, value]) => {
+          file.headers.append(key, value)
+        })
       }
 
-      return res.rawResponse(this.#html, { "content-type": "text/html" })
+      return res.rawResponse(this.#html, { ...mod.headers || {}, "content-type": "text/html" })
     })
   }
 
