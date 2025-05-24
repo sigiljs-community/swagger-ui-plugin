@@ -1,6 +1,10 @@
+import { OpenApiPlugin, OpenApiPluginConfig } from "@sigiljs-community/openapi-plugin"
 import SwaggerUiPlugin, { SwaggerUiPluginConfig } from "./swagger-ui-plugin"
 
 export {
   SwaggerUiPlugin,
-  type SwaggerUiPluginConfig
+  OpenApiPlugin,
+
+  type SwaggerUiPluginConfig,
+  type OpenApiPluginConfig
 }

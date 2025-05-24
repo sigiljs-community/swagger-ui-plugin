@@ -19,9 +19,17 @@ yarn add @sigiljs-community/swagger-ui-plugin
 
 ```typescript
 import { Sigil } from "@sigiljs/sigil"
-import { SwaggerUiPlugin } from "@sigiljs-community/swagger-ui-plugin"
+import { SwaggerUiPlugin, OpenApiPlugin } from "@sigiljs-community/swagger-ui-plugin"
 
 const app = new Sigil()
+
+// In this case, SwaggerUiPlugin depends on the
+// OpenApiPlugin, so we need to define it
+// before SwaggerUiPlugin
+
+// Read more about OpenApiPlugin configuration
+// at the https://github.com/sigiljs-community/openapi-plugin
+app.addPlugin(OpenApiPlugin)
 
 // Register the OpenAPI plugin with optional settings
 app.addPlugin(SwaggerUiPlugin, {
