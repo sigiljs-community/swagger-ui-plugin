@@ -2,7 +2,7 @@
   "name": "@sigiljs-community/swagger-ui-plugin",
   "version": "0.0.0",
   "description": "Plugin for SigilJS framework, that generates and serves Swagger UI at a configurable endpoint",
-  "main": "dist/seal.js",
+  "main": "dist/swagger-ui-plugin.js",
   "typings": "dist/index.d.ts",
   "scripts": {
     "build": "vite build -- --production"
