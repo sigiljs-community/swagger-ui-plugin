@@ -3,7 +3,7 @@ import { SigilPlugin } from "@sigiljs/sigil"
 import path from "node:path"
 import generateHtml, { SwaggerGenOptions } from "./gen/generateHtml"
 
-export type SwaggerUiPluginConfig = Omit<SwaggerGenOptions, "swaggerInitOptions"> & { swaggerInitOptions: Record<string, any> } & {
+export type SwaggerUiPluginConfig = Partial<Omit<SwaggerGenOptions, "swaggerInitOptions"> & { swaggerInitOptions: Record<string, any> }> & {
   path?: string
 }
 
