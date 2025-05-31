@@ -51,8 +51,8 @@
   },
   "homepage": "https://github.com/sigiljs-community/swagger-ui-plugin#readme",
   "dependencies": {
-    "@sigiljs-community/openapi-plugin": "^1.1.0",
-    "@sigiljs/sigil": "^0.2.0-rc.1",
+    "@sigiljs-community/openapi-plugin": "^1.1.2",
+    "@sigiljs/sigil": "^0.2.3",
     "swagger-ui-dist": "^5.22.0"
   }
 }
